@@ -1,55 +1,55 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% load static %} <!-- Загрузка тега static для работы с статическими файлами в Django -->
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Отображение данных</title>
 </head>
-<body>
-  <h1>Данные из XML</h1>
-  {% if errors %}
-  <div class="error">
-      <p>Ошибки:</p>
-      <ul>
-          {% for error in errors %}
-              <li>{{ error }}</li>
-          {% endfor %}
-      </ul>
-  </div>
-  {% endif %}
-  <table>
-      <thead>
-          <tr>
-              <th>Название рецепта</th>
-              <th>Ингредиенты</th>
+<body> 
+  <h1>Данные из XML</h1> 
+  {% if errors %} <!-- Проверка наличия ошибок -->
+  <div class="error"> 
+      <p>Ошибки:</p> 
+      <ul> 
+          {% for error in errors %} <!-- Цикл по всем ошибкам -->
+              <li>{{ error }}</li> <!-- Элемент списка с текстом ошибки -->
+          {% endfor %} <!-- Конец цикла по ошибкам -->
+      </ul> 
+  </div> 
+  {% endif %} <!-- Конец проверки наличия ошибок -->
+  <table> 
+      <thead> 
+          <tr> 
+              <th>Название рецепта</th> 
+              <th>Ингредиенты</th> 
               <th>Инструкции</th>
-              <th>Время приготовления</th>
-          </tr>
-      </thead>
-      <tbody>
-          {% for item in data %}
-              <tr>
-                  <td>{{ item.name }}</td>
-                  <td>{{ item.ingredients }}</td>
-                  <td>{{ item.instructions }}</td>
-                  <td>{{ item.cooking_time }}</td>
-              </tr>
-          {% empty %}
-              <tr>
+              <th>Время приготовления</th> 
+          </tr> 
+      </thead> 
+      <tbody> 
+          {% for item in data %} <!-- Цикл по всем элементам данных -->
+              <tr> 
+                  <td>{{ item.name }}</td> <!-- Ячейка с названием рецепта -->
+                  <td>{{ item.ingredients }}</td> <!-- Ячейка с ингредиентами -->
+                  <td>{{ item.instructions }}</td> <!-- Ячейка с инструкциями -->
+                  <td>{{ item.cooking_time }}</td> <!-- Ячейка с временем приготовления -->
+              </tr> 
+          {% empty %} <!-- Если данных нет -->
+              <tr> 
                   <td colspan="4">Нет данных для отображения.</td>
-              </tr>
-          {% endfor %}
-      </tbody>
-  </table>
+              </tr> 
+          {% endfor %} <!-- Конец цикла по данным -->
+      </tbody> 
+  </table> 
   <div class="btn-container">
-      <a href="{% url 'xml_form' %}">
-          <button>Вернуться к форме</button>
-      </a>
-      <a href="{% url 'manage_xml' %}">
+      <a href="{% url 'xml_form' %}"> <!-- Ссылка на URL 'xml_form' -->
+          <button>Вернуться к форме</button> 
+      </a> 
+      <a href="{% url 'manage_xml' %}"> <!-- Ссылка на URL 'manage_xml' -->
           <button>Перейти к выгрузке и загрузке данных</button>
       </a>
-  </div>
-</body>
-</html>
+  </div> 
+</body> 
+</html> 

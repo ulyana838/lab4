@@ -12,10 +12,10 @@ def create_or_update_xml_file(data):
     if os.path.exists(file_path):
         if os.path.getsize(file_path) == 0:
             # Если файл пустой, создаем новый корневой элемент
-            root = ET.Element("dish")
+            root = ET.Element("data")
             tree = ET.ElementTree(root)
         else:
-            # Если файл существует и не пустой, парсим его
+            # Если файл существует и не пустой, разбираем его
             tree = ET.parse(file_path)
             root = tree.getroot()
     else:

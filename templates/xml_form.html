@@ -1,38 +1,38 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% load static %} 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма ввода данных</title>
-</head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Форма ввода данных</title> 
+</head> 
 <body>
     <h1>Форма ввода данных</h1>
-    <form method="post">
-        {% csrf_token %}
-        <div>
+    <form method="post"> <!-- Начало формы для отправки POST-запроса -->
+        {% csrf_token %} <!-- Вставка CSRF-токена для защиты формы -->
+        <div> 
             <label for="id_name">Название рецепта:</label>
-            {{ form.name }}
-        </div>
-        <div>
-            <label for="id_ingredients">Ингредиенты:</label>
-            {{ form.ingredients }}
-        </div>
-        <div>
-            <label for="id_instructions">Инструкции:</label>
-            {{ form.instructions }}
-        </div>
-        <div>
-            <label for="id_cooking_time">Время приготовления (часы):</label>
-            {{ form.cooking_time }}
-        </div>
-        <button type="submit">Отправить</button>
-    </form>
-    <div class="btn-container">
-        <a href="{% url 'display_xml_data' %}">
-            <button>Перейти к таблице данных</button>
-        </a>
+            {{ form.name }} <!-- Поле ввода для названия рецепта из Django-формы -->
+        </div> 
+        <div> 
+            <label for="id_ingredients">Ингредиенты:</label> 
+            {{ form.ingredients }} <!-- Поле ввода для ингредиентов из Django-формы -->
+        </div> 
+        <div> 
+            <label for="id_instructions">Инструкции:</label> 
+            {{ form.instructions }} <!-- Поле ввода для инструкций из Django-формы -->
+        </div> 
+        <div> 
+            <label for="id_cooking_time">Время приготовления (часы):</label> 
+            {{ form.cooking_time }} <!-- Поле ввода для времени приготовления из Django-формы -->
+        </div> 
+        <button type="submit">Отправить</button> 
+    </form> 
+    <div class="btn-container"> 
+        <a href="{% url 'display_xml_data' %}"> <!-- Ссылка на URL 'display_xml_data' -->
+            <button>Перейти к таблице данных</button> 
+        </a> 
     </div>
-</body>
-</html>
+</body> 
+</html> 
