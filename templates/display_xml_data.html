@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отображение данных</title>
+</head>
+<body>
+  <h1>Данные из XML</h1>
+  {% if errors %}
+  <div class="error">
+      <p>Ошибки:</p>
+      <ul>
+          {% for error in errors %}
+              <li>{{ error }}</li>
+          {% endfor %}
+      </ul>
+  </div>
+  {% endif %}
+  <table>
+      <thead>
+          <tr>
+              <th>Название рецепта</th>
+              <th>Ингредиенты</th>
+              <th>Инструкции</th>
+              <th>Время приготовления</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for item in data %}
+              <tr>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.ingredients }}</td>
+                  <td>{{ item.instructions }}</td>
+                  <td>{{ item.cooking_time }}</td>
+              </tr>
+          {% empty %}
+              <tr>
+                  <td colspan="4">Нет данных для отображения.</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  <div class="btn-container">
+      <a href="{% url 'xml_form' %}">
+          <button>Вернуться к форме</button>
+      </a>
+      <a href="{% url 'manage_xml' %}">
+          <button>Перейти к выгрузке и загрузке данных</button>
+      </a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<data>
+  <entry>
+    <name>4</name>
+    <ingredients>t</ingredients>
+    <instructions>t</instructions>
+    <cooking_time>1</cooking_time>
+  </entry>
+  <entry>
+    <name>gggg</name>
+    <ingredients>ggg</ingredients>
+    <instructions>gggggg</instructions>
+    <cooking_time>1</cooking_time>
+  </entry>
+  <entry>
+    <name>dd</name>
+    <ingredients>dd</ingredients>
+    <instructions>ddd</instructions>
+    <cooking_time>0</cooking_time>
+  </entry>
+  <entry>
+    <name>dd</name>
+    <ingredients>dd</ingredients>
+    <instructions>ddd</instructions>
+    <cooking_time>5</cooking_time>
+  </entry>
+  <entry>
+    <name>111</name>
+    <ingredients>111</ingredients>
+    <instructions>111</instructions>
+    <cooking_time>11</cooking_time>
+  </entry>
+  <entry>
+    <name>d</name>
+    <ingredients>d</ingredients>
+    <instructions>d</instructions>
+    <cooking_time>1</cooking_time>
+  </entry>
+  <entry>
+    <name>222</name>
+    <ingredients>22222</ingredients>
+    <instructions>22</instructions>
+    <cooking_time>2222</cooking_time>
+  </entry>
+  <entry>
+    <name>борщ</name>
+    <ingredients>капуста, мясо, картошка, вода</ingredients>
+    <instructions>порезать картошку, мясо. поставить бульон</instructions>
+    <cooking_time>2</cooking_time>
+  </entry>
+  <entry>
+    <name>ы</name>
+    <ingredients>ы</ingredients>
+    <instructions>ы</instructions>
+    <cooking_time>4</cooking_time>
+  </entry>
+</data>
