@@ -5,3 +5,9 @@ class RecipeForm(forms.ModelForm):  # Определение класса фор
     class Meta:  # Вложенный класс Meta для настройки формы
         model = RecipeModel  # Указание модели, на основе которой создается форма
         fields = ['name', 'ingredients', 'instructions', 'cooking_time']  # Список полей модели, которые будут включены в форму
+        labels = {
+            'name': 'Название блюда',
+            'ingredients': 'Ингредиенты',
+            'instructions': 'Инструкция',
+            'cooking_time': 'Время приготовления (минуты)',
+        }

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<data>
+  <entry>
+    <name>блины</name>
+    <ingredients>молоко, сахар, соль, мука, масло, яйцо</ingredients>
+    <instructions>смешать все ингредиенты и жарить на разогретой сковороде</instructions>
+    <cooking_time>20</cooking_time>
+  </entry>
+  <entry>
+    <name>жаренная картошка</name>
+    <ingredients>картошка, соль, специи, масло</ingredients>
+    <instructions>порезать картошку и жарить на разогретой сковороде до образования золотистой корочки.</instructions>
+    <cooking_time>30</cooking_time>
+  </entry>
+  <entry>
+    <name>пюре</name>
+    <ingredients>картошка, молоко, масло</ingredients>
+    <instructions>сварить картофель и размять его с молоком и маслом</instructions>
+    <cooking_time>40</cooking_time>
+  </entry>
+  <entry>
+    <name>борщ</name>
+    <ingredients>капуста, мясо, картошка</ingredients>
+    <instructions>все варить</instructions>
+    <cooking_time>60</cooking_time>
+  </entry>
+</data>

@@ -1,46 +1,43 @@
-{% load static %} <!-- Загрузка тега static для работы с статическими файлами в Django -->
-<!DOCTYPE html> 
-<html lang="en">
+{%load static%}
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8"> 
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Скачать и Загрузить XML</title>
-</head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='{% static 'css/styles.css' %}'>
+    <title>Управление XML файлом</title>
+</head>
 <body>
   <h1>Скачать и Загрузить XML файл</h1> 
-  <form method="GET" action=""> <!-- Начало формы для отправки GET-запроса -->
-      <button type="submit" name="download">Скачать XML файл</button> 
-  </form> 
-  <hr>
-  <h2>Загрузить XML файл</h2>
-  {% if errors %} <!-- Проверка наличия ошибок -->
-      <div class="error"> 
-          <p>Обнаружены ошибки:</p> 
-          <ul> 
-              {% for error in errors %} <!-- Цикл по всем ошибкам -->
-                  <li>{{ error }}</li> <!-- Элемент списка с текстом ошибки -->
-              {% endfor %} <!-- Конец цикла по ошибкам -->
-          </ul> 
-      </div> 
-  {% endif %} <!-- Конец проверки наличия ошибок -->
-  {% if success_message %} <!-- Проверка наличия сообщения об успешной операции -->
-      <div class="success">
-          <p>{{ success_message }}</p> <!-- Параграф с текстом сообщения об успехе -->
-      </div> 
-  {% endif %} <!-- Конец проверки наличия сообщения об успешной операции -->
-  <form method="POST" enctype="multipart/form-data" action=""> <!-- Начало формы для отправки POST-запроса с файлом -->
-      {% csrf_token %} <!-- Вставка CSRF-токена для защиты формы -->
-      <input type="file" name="upload" accept=".xml" required> <!-- Поле для выбора файла с обязательным выбором и принимающим только XML файлы -->
-      <button type="submit">Загрузить XML файл</button> 
-  </form>
-  <div class="btn-container"> 
-      <a href="{% url 'xml_form' %}"> <!-- Ссылка на URL 'xml_form' -->
-          <button>Вернуться к форме</button> 
-      </a>
-      <a href="{% url 'display_xml_data' %}"> <!-- Ссылка на URL 'display_xml_data' -->
-          <button>Перейти к таблице данных</button>
-      </a> 
-  </div> 
+  <!-- Блок для отображения сообщений об успехе -->
+  {% if success_message %}
+  <p class="success">{{ success_message }}</p>
+{% endif %}
+
+<!-- Блок для отображения сообщений об ошибках -->
+{% if errors %}
+  <ul>
+      {% for error in errors %}
+          <li class="error">{{ error }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
+
+<!-- Форма для загрузки XML файла -->
+<form method="post" enctype="multipart/form-data" class="form">
+  {% csrf_token %} <!-- Токен для защиты от CSRF-атак -->
+  <label for="upload">Загрузить XML файл:</label>
+  <input type="file" name="upload" accept=".xml">
+  <button type="submit">Загрузить</button>
+</form>
+
+<!-- Форма для скачивания XML файла -->
+<form method="get" class="form">
+  <button type="submit" name="download">Скачать XML файл</button>
+</form>
+      <div class="nav-links">
+        <a href="{% url 'xml_form' %}">Вернуться к форме</a> <!-- Ссылка для добавления студента -->
+        <a href="{% url 'display_xml_data' %}">Просмотреть данные</a> <!-- Ссылка для просмотра данных -->
+    </div>
 </body> 
 </html>

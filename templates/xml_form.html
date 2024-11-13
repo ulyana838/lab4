@@ -1,38 +1,31 @@
-{% load static %} 
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
+{%load static%}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='{% static 'css/styles.css' %}'>   
     <title>Форма ввода данных</title> 
 </head> 
 <body>
     <h1>Форма ввода данных</h1>
-    <form method="post"> <!-- Начало формы для отправки POST-запроса -->
-        {% csrf_token %} <!-- Вставка CSRF-токена для защиты формы -->
-        <div> 
-            <label for="id_name">Название рецепта:</label>
-            {{ form.name }} <!-- Поле ввода для названия рецепта из Django-формы -->
-        </div> 
-        <div> 
-            <label for="id_ingredients">Ингредиенты:</label> 
-            {{ form.ingredients }} <!-- Поле ввода для ингредиентов из Django-формы -->
-        </div> 
-        <div> 
-            <label for="id_instructions">Инструкции:</label> 
-            {{ form.instructions }} <!-- Поле ввода для инструкций из Django-формы -->
-        </div> 
-        <div> 
-            <label for="id_cooking_time">Время приготовления (часы):</label> 
-            {{ form.cooking_time }} <!-- Поле ввода для времени приготовления из Django-формы -->
-        </div> 
-        <button type="submit">Отправить</button> 
-    </form> 
-    <div class="btn-container"> 
-        <a href="{% url 'display_xml_data' %}"> <!-- Ссылка на URL 'display_xml_data' -->
-            <button>Перейти к таблице данных</button> 
-        </a> 
-    </div>
+     <!-- Блок для отображения сообщений об успехе или ошибке -->
+     {% if success %}
+     <p class="success">{{ message }}</p>
+ {% elif message %}
+     <p class="error">{{ message }}</p>
+ {% endif %}
+
+ <!-- Форма для добавления студента -->
+ <form method="post" class="form">
+     {% csrf_token %} <!-- Токен для защиты от CSRF-атак -->
+     {{ form.as_p }} <!-- Отображение формы с использованием Django шаблонов -->
+     <button type="submit" name='save_to' value='file'>Сохранить</button> <!-- Кнопка для отправки формы -->
+     <button type="submit" name='save_to' value='database'>Сохранить в БД</button>
+ </form>
+ <div class="nav-links">
+  <a href="{% url 'display_xml_data' %}">Просмотреть данные</a> <!-- Ссылка для просмотра данных -->
+  <a href="{% url 'display_db_data' %}">Посмотреть данные в БД</a>
+</div>
 </body> 
 </html> 

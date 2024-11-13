@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Редактирование данных</title>
+</head>
+<body>
+    <h1>Редактировать данные</h1>
+
+    <!-- Блок для отображения сообщений об успехе или ошибке -->
+    {% if success %}
+        <p class="success">{{ message }}</p>
+    {% elif message %}
+        <p class="error">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST" class="form">
+        {% csrf_token %}
+        {{ form.as_p }} <!-- Отображение полей формы -->
+        <button type="submit">Сохранить изменения</button>
+
+        <!-- Проверка наличия ошибок в форме -->
+        {% if form.errors %}
+            <div class="error-messages">
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        <li>{{ field }}: {{ errors|join:", " }}</li> <!-- Отображение ошибок для каждого поля -->
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </form>
+
+    <div class="nav-links">
+        <a href="{% url 'display_db_data' %}">Назад к списку</a>
+    </div>
+</body>
+</html>

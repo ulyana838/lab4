@@ -1,26 +1,22 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 800px;
-  margin: 20px auto;
+  margin: 20px;
   padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  background-color: #f4f4f4;
+  width: auto;
 }
 
 h1 {
-  text-align: center;
   color: #333;
 }
 
-form {
-  margin-bottom: 20px;
+.form {
+  background: #fff;
+  padding: 20px;
+  width: 90%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
 label {
@@ -29,75 +25,77 @@ label {
   font-weight: bold;
 }
 
-input, textarea {
-  width: 100%;
+input[type="text"], input[type="number"], textarea {
+  width: calc(100% - 22px);
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  border-radius: 5px;
 }
 
 button {
-  width: 100%;
-  padding: 10px;
-  background-color: #ff9800; 
-  color: #fff;
+  background-color: #ff9800; /* Оранжевый цвет */
+  color: white;
+  padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
 button:hover {
-  background-color: #e68900; 
+  background-color: #e68900; /* Темно-оранжевый цвет при наведении */
 }
 
-.btn-container {
-  display: flex;
-  justify-content: space-between;
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+.nav-links {
   margin-top: 20px;
 }
 
-.btn-container button {
-  width: 60%;
-  margin: 0 1%;
+.nav-links a {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #ff9800; /* Оранжевый цвет */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
+.nav-links a:hover {
+  background-color: #e68900; /* Темно-оранжевый цвет при наведении */
+}
+
+/* Стили для таблицы */
 table {
-  width: 100%;
+  width: 90%; /* Уменьшена ширина таблицы */
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-table, th, td {
-  border: 1px solid #ddd;
-}
-
+/* Стили для ячеек таблицы */
 th, td {
   padding: 10px;
+  border: 1px solid #ccc;
   text-align: left;
 }
 
+/* Стили для заголовков таблицы */
 th {
   background-color: #f2f2f2;
 }
 
-.error, .success {
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 4px;
-}
-
-.error {
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  color: #721c24;
-}
-
-.success {
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  color: #155724;
+/* Стили для текстовых областей */
+textarea {
+  width: 98%;
+  height: 100px; /* Задаем высоту для текстовой области */
+  resize: vertical; /* Позволяем изменять высоту текстовой области */
 }
